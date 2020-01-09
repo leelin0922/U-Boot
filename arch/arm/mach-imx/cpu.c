@@ -335,7 +335,8 @@ int cpu_eth_init(bd_t *bis)
  */
 int cpu_mmc_init(bd_t *bis)
 {
-	return fsl_esdhc_mmc_init(bis);
+	//return fsl_esdhc_mmc_init(bis);
+	return board_mmc_init(bis);
 }
 #endif
 
@@ -383,7 +384,9 @@ void arch_preboot_os(void)
 #endif
 #if defined(CONFIG_VIDEO_IPUV3)
 	/* disable video before launching O/S */
+#ifndef HARDWARE_SBC7112
 	ipuv3_fb_shutdown();
+#endif
 #endif
 #ifdef CONFIG_VIDEO_GIS
 	/* Entry for GIS */

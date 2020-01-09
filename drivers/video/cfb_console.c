@@ -2138,6 +2138,10 @@ int drv_video_init(void)
 	bool __maybe_unused keyboard_ok = false;
 
 	/* Check if video initialization should be skipped */
+	//printf("%s:%s:%i: here i am\n", __FILE__, __func__, __LINE__);
+#ifdef HARDWARE_SBC7112
+	set_panel_env();
+#endif
 	if (board_video_skip())
 		return 0;
 

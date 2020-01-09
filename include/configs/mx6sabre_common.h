@@ -12,6 +12,16 @@
 #include "mx6_common.h"
 #include "imx_env.h"
 
+#define HARDWARE_SBC7112	1
+#define HARDWARE_EEPROM_GPIO_I2C4
+#define HARDWARE_SBC7819
+
+#ifdef HARDWARE_SBC7819
+#define HARDWARE_EDID_EEPROM_I2C2
+#define LVDS_PORT		0
+#else
+#define LVDS_PORT		1
+#endif
 #define CONFIG_IMX_THERMAL
 
 /* Size of malloc() pool */
